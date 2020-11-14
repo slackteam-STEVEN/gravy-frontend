@@ -1,49 +1,84 @@
 <template>
   <div class='container'>
     <div class='header' style='background-color:#303133;'>Gravy</div>
-    <el-row :gutter='6'>
-      <el-col :span='4'>
-        <div class='grid-content6' style='margin-top:30px;'>
-          <el-radio-group v-model='radio1'>
-            <router-link to='/'>
-              <el-radio-button label='チャンネル'></el-radio-button>
-            </router-link>
-            <router-link to='/top_movie1'>
-              <el-radio-button label='動画'></el-radio-button>
-            </router-link>
-          </el-radio-group>
-        </div>
-      </el-col>
-      <el-col :span='8'>
-        <div class='aaa'>
-          <div
-            class='grid-content'
-            style='padding: 10px; border: 5px double #333333; margin-top: 10px;'
-          >
-            <div class='block'>
-              <span class='demonstration'>検索範囲</span>
-              <el-date-picker
-                @change='get_date'
-                v-model='value1'
-                type='datetimerange'
-                format='yyyy/MM/dd HH:mm:ss'
-                range-separator='~'
-                start-placeholder='start_created_at'
-                end-placeholder='end_created_at'
-              ></el-date-picker>
+    <div style="margin-left:2%; margin-right:2%;">
+      <el-row :gutter="8">
+        <div style='margin-top:30px;'>検索条件</div>
+      </el-row>
+      <el-row :gutter='2'>
+        <el-col :span='8'>
+          <div class='aaa'>
+            <div class='grid-content' style='margin-top:10px;'>
+              <div class='block'>
+                <el-date-picker
+                  @change='get_date'
+                  v-model='value1'
+                  type='datetimerange'
+                  format='yyyy/MM/dd HH:mm:ss'
+                  range-separator='~'
+                  start-placeholder='start_created_at'
+                  end-placeholder='end_created_at'
+                ></el-date-picker>
+              </div>
             </div>
           </div>
-        </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter='12'>
-      <el-col :span='24'>
-        <el-col :span='12'>
-          <div class='bbb'>
-            <div class='grid-content3' style='margin-bottom: 400px; border: 5px double #333333;'>
-              <div class='block'>
-                <p>チャンネル登録者数Top50</p>
-                <el-table :data='channel_data_result_subscriber' style='width: 100%'>
+        </el-col>
+        <el-col :span='4'>
+          <div class='grid-content6' style='margin-top:10px;'>
+            <el-radio-group v-model='radio1'>
+              <router-link to='/'>
+                <el-radio-button label='チャンネル'></el-radio-button>
+              </router-link>
+              <router-link to='/top_movie1'>
+                <el-radio-button label='動画'></el-radio-button>
+              </router-link>
+            </el-radio-group>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter='12'>
+        <el-col :span='24'>
+          <el-col :span='12'>
+            <div class='bbb'>
+              <div class='grid-content3'>
+                <div class='block'>
+                  <p>チャンネル登録者数Top50</p>
+                  <el-table :data='channel_data_result_subscriber' style='width: 100%'>
+                    <el-table-column>
+                      <template slot-scope='scope'>
+                        <el-col :span='8'>
+                          <div class='test'>
+                          <a :href= 'scope.row.url'>
+                            <img :src= 'scope.row.thumbnail_url' width='100' height='100' />
+                          </a>
+                          </div>
+                        </el-col>
+                        <el-col :span='16'>
+                          <el-row :guitter='6'>
+                            <div>チャンネル名:{{scope.row.title}}</div>
+                          </el-row>
+                          <el-row :guitter='6'>
+                            <div>登録者数:{{scope.row.subscribers}}</div>
+                          </el-row>
+                          <el-row :guitter='6'>
+                            <div>再生数:{{scope.row.view_count}}</div>
+                          </el-row>
+                          <el-row :guitter='6'>
+                            <div>チャンネル開設日:{{scope.row.post_date.split("T")[0]}}</div>
+                          </el-row>
+                        </el-col>
+                      </template>
+                    </el-table-column>
+                  </el-table>
+                </div>
+              </div>
+            </div>
+          </el-col>
+          <el-col :span='12'>
+            <div class='ccc'>
+              <div class='grid-content4'>
+                <p>再生数Top50</p>
+                <el-table :data='channel_data_result_view' style='width: 100%'>
                   <el-table-column>
                     <template slot-scope='scope'>
                       <el-col :span='8'>
@@ -64,7 +99,7 @@
                           <div>再生数:{{scope.row.view_count}}</div>
                         </el-row>
                         <el-row :guitter='6'>
-                          <div>チャンネル開設日:{{scope.row.post_date}}</div>
+                          <div>チャンネル開設日:{{scope.row.post_date.split("T")[0]}}</div>
                         </el-row>
                       </el-col>
                     </template>
@@ -72,44 +107,10 @@
                 </el-table>
               </div>
             </div>
-          </div>
+          </el-col>
         </el-col>
-        <el-col :span='12'>
-          <div class='ccc'>
-            <div class='grid-content4' style='margin-bottom: 400px; border: 5px double #333333;'>
-              <p>再生数Top50</p>
-              <el-table :data='channel_data_result_view' style='width: 100%'>
-                <el-table-column>
-                  <template slot-scope='scope'>
-                    <el-col :span='8'>
-                      <div class='test'>
-                      <a :href= 'scope.row.url'>
-                        <img :src= 'scope.row.thumbnail_url' width='100' height='100' />
-                      </a>
-                      </div>
-                    </el-col>
-                    <el-col :span='16'>
-                      <el-row :guitter='6'>
-                        <div>チャンネル名:{{scope.row.title}}</div>
-                      </el-row>
-                      <el-row :guitter='6'>
-                        <div>登録者数:{{scope.row.subscribers}}</div>
-                      </el-row>
-                      <el-row :guitter='6'>
-                        <div>再生数:{{scope.row.view_count}}</div>
-                      </el-row>
-                      <el-row :guitter='6'>
-                        <div>チャンネル開設日:{{scope.row.post_date}}</div>
-                      </el-row>
-                    </el-col>
-                  </template>
-                </el-table-column>
-              </el-table>
-            </div>
-          </div>
-        </el-col>
-      </el-col>
-    </el-row>
+      </el-row>
+    </div>
   </div>
 </template>
 <script>
@@ -179,8 +180,8 @@ export default {
   data () {
     return {
       radio1: 'チャンネル',
-      channel_data_result_view: [{}],
-      channel_data_result_subscriber: [{}],
+      channel_data_result_view: [],
+      channel_data_result_subscriber: [],
       pickerOptions: {
         shortcuts: [
           {

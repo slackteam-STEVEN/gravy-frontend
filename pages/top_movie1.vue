@@ -112,7 +112,7 @@
                         <div>動画タイトル:{{scope.row.title}}</div>
                       </el-row>
                       <el-row :guitter='6'>
-                        <div>投稿日:{{scope.row.post_date}}</div>
+                        <div>投稿日:{{scope.row.post_date.split("T")[0]}}</div>
                       </el-row>
                       <el-row :guitter='6'>
                         <div>再生数:{{scope.row.view_count}}</div>
@@ -147,7 +147,7 @@
                         <div>動画タイトル:{{scope.row.title}}</div>
                       </el-row>
                       <el-row :guitter='6'>
-                        <div>投稿日:{{scope.row.post_date}}</div>
+                        <div>投稿日:{{scope.row.post_date.split("T")[0]}}</div>
                       </el-row>
                       <el-row :guitter='6'>
                         <div>再生数:{{scope.row.view_count}}</div>
@@ -236,8 +236,8 @@ export default {
     return {
       radio1: '動画',
       radio2: 'Film & Animation',
-      video_data_result_view: [{}],
-      video_data_result_subscriber: [{}],
+      video_data_result_view: [],
+      video_data_result_subscriber: [],
       pickerOptions: {
         shortcuts: [
           {
