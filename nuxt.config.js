@@ -1,5 +1,8 @@
 
 export default {
+  env: {
+    BACKEND_CREATE_URL: 'http://localhost:5000/',
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
