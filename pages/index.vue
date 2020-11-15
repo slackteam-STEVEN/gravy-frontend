@@ -29,7 +29,7 @@
               <router-link to='/'>
                 <el-radio-button label='チャンネル'></el-radio-button>
               </router-link>
-              <router-link to='/top_movie1'>
+              <router-link to='/video'>
                 <el-radio-button label='動画'></el-radio-button>
               </router-link>
             </el-radio-group>

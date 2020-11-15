@@ -11,7 +11,7 @@
           <div class='grid-content' style='margin-top:10px;'>
             <div class='block'>
               <el-date-picker
-                @change='get_date'
+                @change='get_date(categoryId)'
                 v-model='value1'
                 type='datetimerange'
                 format='yyyy/MM/dd HH:mm:ss'
@@ -29,7 +29,7 @@
             <router-link to='/'>
               <el-radio-button label='チャンネル'></el-radio-button>
             </router-link>
-            <router-link to='/top_movie1'>
+            <router-link to='/video'>
               <el-radio-button label='動画'></el-radio-button>
             </router-link>
           </el-radio-group>
@@ -172,6 +172,7 @@ import axios from 'axios'
 export default {
   methods: {
     async get_date (categoryId) {
+      this.categoryId = categoryId
       const self = this
       const params = new URLSearchParams()
       params.append(
@@ -239,6 +240,7 @@ export default {
       radio2: 'Film & Animation',
       video_data_result_view: [],
       video_data_result_subscriber: [],
+      categoryId: 1,
       pickerOptions: {
         shortcuts: [
           {
