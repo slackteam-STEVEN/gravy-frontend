@@ -1,7 +1,7 @@
 
 export default {
   env: {
-    BACKEND_CREATE_URL: 'http://54.249.165.57/',
+    BACKEND_CREATE_URL: 'https://api.team-gravy.com/',
   },
   /*
   ** Nuxt rendering mode
