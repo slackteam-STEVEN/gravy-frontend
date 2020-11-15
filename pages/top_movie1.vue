@@ -215,8 +215,8 @@ export default {
           // responce.date=Flaskから返された返り値
           // Flaskの返り値をbackend_getに格納
           response.data.sort(function (a, b) {
-            if (a.view_count !== b.view_count) {
-              return (a.view_count - b.view_count) * -1
+            if (a.raiting !== b.raiting) {
+              return (a.raiting - b.raiting) * -1
             }
             return 0
           })
