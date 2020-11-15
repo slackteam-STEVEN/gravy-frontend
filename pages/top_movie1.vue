@@ -1,27 +1,15 @@
 <template>
   <div class='container'>
-    <div class='header' style='background-color:#303133;'>Gravy</div>
-    <el-row :gutter='6'>
-      <el-col :span='4'>
-        <div class='grid-content6' style='margin-top:30px;'>
-          <el-radio-group v-model='radio1'>
-            <router-link to='/'>
-              <el-radio-button label='チャンネル'></el-radio-button>
-            </router-link>
-            <router-link to='/top_movie1'>
-              <el-radio-button label='動画'></el-radio-button>
-            </router-link>
-          </el-radio-group>
-        </div>
-      </el-col>
+  <div class='header' style='background-color:#303133;'>Gravy</div>
+  <div style="margin-left:2%; margin-right:2%;">
+    <el-row :gutter='8'>
+        <div style='margin-top:30px;'>検索条件</div>
+    </el-row>
+    <el-row :guitter='2'>
       <el-col :span='8'>
         <div class='aaa'>
-          <div
-            class='grid-content'
-            style='padding: 10px; border: 5px double #333333; margin-top: 10px;'
-          >
+          <div class='grid-content' style='margin-top:10px;'>
             <div class='block'>
-              <span class='demonstration'>検索範囲</span>
               <el-date-picker
                 @change='get_date'
                 v-model='value1'
@@ -35,8 +23,20 @@
           </div>
         </div>
       </el-col>
+      <el-col :span='4'>
+        <div class='grid-content6' style='margin-top:10px;'>
+          <el-radio-group v-model='radio1'>
+            <router-link to='/'>
+              <el-radio-button label='チャンネル'></el-radio-button>
+            </router-link>
+            <router-link to='/top_movie1'>
+              <el-radio-button label='動画'></el-radio-button>
+            </router-link>
+          </el-radio-group>
+        </div>
+      </el-col>
     <el-col :span='12'>
-        <div class='grid-content2'>
+        <div class='grid-content2' style="margin-top:-20px">
           <el-radio-group v-model='radio2'>
             <el-row :gutter='8'>
             <dev @input="get_date(1)">
@@ -94,7 +94,7 @@
       <el-col :span='24'>
         <el-col :span='12'>
           <div class='bbb'>
-            <div class='grid-content3' style='margin-bottom: 400px; border: 5px double #333333;'>
+            <div class='grid-content3'>
               <div class='block'>
                 <p>再生数Top50</p>
                 <el-table :data='video_data_result_subscriber' style='width: 100%'>
@@ -130,7 +130,7 @@
         </el-col>
         <el-col :span='12'>
           <div class='ccc'>
-            <div class='grid-content4' style='margin-bottom: 400px; border: 5px double #333333;'>
+            <div class='grid-content4'>
               <p>高評価Top50</p>
               <el-table :data='video_data_result_view' style='width: 100%'>
                 <el-table-column>
@@ -164,6 +164,7 @@
         </el-col>
       </el-col>
     </el-row>
+  </div>
   </div>
 </template>
 <script>
@@ -335,7 +336,6 @@ export default {
   border-radius: 30px;
 }
 .grid-content2 {
-  margin-top: 20px;
   border-radius: 30px;
 }
 .grid-content3 {
