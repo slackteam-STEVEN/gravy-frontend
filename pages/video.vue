@@ -40,50 +40,50 @@
           <el-radio-group v-model='radio2'>
             <el-row :gutter='8'>
             <dev @input="get_date(1)">
-            <el-radio-button label='Film & Animation'></el-radio-button>
+            <el-radio-button label='映画とアニメ'></el-radio-button>
             </dev>
             <dev @input='get_date(2)'>
-            <el-radio-button label='Autos & Vehicles'></el-radio-button>
+            <el-radio-button label='自動車と乗り物'></el-radio-button>
             </dev>
             <dev @input='get_date(10)'>
-            <el-radio-button label='Music'></el-radio-button>
+            <el-radio-button label='音楽'></el-radio-button>
             </dev>
             <dev @input='get_date(15)'>
-            <el-radio-button label='Pets & Animals'></el-radio-button>
+            <el-radio-button label='ペットと動物'></el-radio-button>
             </dev>
             <dev @input='get_date(17)'>
-            <el-radio-button label='Sports'></el-radio-button>
+            <el-radio-button label='スポーツ'></el-radio-button>
             </dev>
             </el-row>
             <el-row :gutter='8'>
             <dev @input='get_date(19)'>
-            <el-radio-button label='Travel & Events'></el-radio-button>
+            <el-radio-button label='旅行とイベント'></el-radio-button>
             </dev>
             <dev @input='get_date(20)'>
-            <el-radio-button label='Gaming'></el-radio-button>
+            <el-radio-button label='ゲーム'></el-radio-button>
             </dev>
             <dev @input='get_date(22)'>
-            <el-radio-button label='People & Blogs'></el-radio-button>
+            <el-radio-button label='ブログ'></el-radio-button>
             </dev>
             <dev @input='get_date(23)'>
-            <el-radio-button label='Comedy'></el-radio-button>
+            <el-radio-button label='コメディー'></el-radio-button>
             </dev>
             <dev @input='get_date(24)'>
-            <el-radio-button label='Entertainment'></el-radio-button>
+            <el-radio-button label='エンターテイメント'></el-radio-button>
             </dev>
             </el-row>
             <el-row :gutter='8'>
             <dev @input='get_date(25)'>
-            <el-radio-button label='News & Politics'></el-radio-button>
+            <el-radio-button label='ニュースと政治'></el-radio-button>
             </dev>
             <dev @input='get_date(26)'>
-            <el-radio-button label='Howto & Style'></el-radio-button>
+            <el-radio-button label='ハウツーとスタイル'></el-radio-button>
             </dev>
             <dev @input='get_date(27)'>
-            <el-radio-button label='Education'></el-radio-button>
+            <el-radio-button label='教育'></el-radio-button>
             </dev>
             <dev @input='get_date(28)'>
-            <el-radio-button label='Science & Technology'></el-radio-button>
+            <el-radio-button label='科学と技術'></el-radio-button>
             </dev>
             </el-row>
           </el-radio-group>
