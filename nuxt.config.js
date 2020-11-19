@@ -73,3 +73,8 @@ export default {
     transpile: [/^element-ui/]
   }
 }
+  module.exports = {
+    modules: [
+      'nuxt-user-agent',
+    ]
+  }

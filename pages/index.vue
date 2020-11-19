@@ -1,5 +1,9 @@
 <template>
+
   <div class='container'>
+   <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
     <div class='header' style='background-color:#303133;'>Gravy</div>
     <div style="margin-left:2%; margin-right:2%;">
       <el-row :gutter="8">
